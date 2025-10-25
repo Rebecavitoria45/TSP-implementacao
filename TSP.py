@@ -151,7 +151,7 @@ def executar_aug():
             pai2 = ag.torneio()
             filho = ag.crossover_OX(pai1, pai2, taxa_crossover=0.9)
             
-            ag.mutacao_swap(filho, taxa_mutacao=0.5)
+            ag.mutacao_swap(filho)
             filho.fitness = Distancia_total(filho.genes)
             nova_pop.append(filho)
 
@@ -186,4 +186,4 @@ desvio_fitness = np.std(resultados)
 print("\n===== RESULTADOS FINAIS =====")
 print(f"Média do fitness: {media_fitness:.2f}")
 print(f"Desvio padrão do fitness: {desvio_fitness:.2f}")
-np.savetxt("AUG_TSP",resultados, fmt='%d')
+np.savetxt("AUG_TSP.txt",resultados, fmt='%d')
